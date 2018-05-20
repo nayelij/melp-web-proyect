@@ -2,7 +2,7 @@
 Melp is a business focussed on showing information about the best restaurants in the city. They have a pretty successful mobile application and are planning to expand their market through a web platform.
 
 ## Preview
-[https://github.com/nayelij/melp-web-proyect/blob/master/img/melp.jpg]
+[https://github.com/nayelij/melp-web-proyect/blob/master/img/melp.JPG]
 
 
 ## Download and Installation
