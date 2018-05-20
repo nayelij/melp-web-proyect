@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Melp Business</title>
+      <link href="css/custom.css" rel="stylesheet">
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/3-col-portfolio.css" rel="stylesheet">
+      <!-- fonts -->
+      <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+      <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+   </head>
+   <body>
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand" href="#">Melp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                     <a class="nav-link mainNavActive" href="#">RESTAURANTS
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">ABOUT</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">SERVICES</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">CONTACT</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <section class="">
+         <!-- Page Content -->
+         <div class="container">
+            <!-- Page Heading -->
+            <div class="row" id="one">
+            </div>
+         </div>
+         <!-- /.container -->
+      </section>
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+         <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Melp Business 2018</p>
+         </div>
+         <!-- /.container -->
+      </footer>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Jquery Rate Picker-->
+      <script type="text/javascript" src="js/jquery-rate-picker.js"></script>
+	  <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC8Egm7HKPBDCTJqlWAR5QHKIL76nNYRqk'></script>
+	<script type="text/javascript" src="js/jquery.googlemap.js"></script>
+      <script type="text/javascript" src="js/jmap.js"></script>
+      <script>
+         var count = 1;
+         $.get( "https://s3-us-west-2.amazonaws.com/lgoveabucket/data_melp.json", function( data ) {
+         	var json = JSON.parse(data);
+         	
+         	$.each(json.slice(0,9), function(arrayID,group) {
+         				
+         	
+					$("#one").append("<div class='col-lg-4 col-sm-6 portfolio-item'>"
+					+"  <div class=' cards h-100'>"
+					 +"   <a href='#'><img class='card-img-top' src='img/"+ group.name+".jpg' alt=''></a>"
+					 +"   <div class='card-body center'>"
+						
+					 +"     <h4 class='card-title text-restaurant'>"
+					 +"      "+ group.name+""
+					 +"     </h4>"
+					 +"     <h3><span id='rating-"+count+"' data-stars="+group.rating+" data-readonly='false'></span></h3>"	
+						
+					+"  <button type='button' id='showmore' onClick='initMap("+group.address.location.lat+","+group.address.location.lng+","+count+");' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal-"+count+"'>Show more</button>"
+					 +"   </div>"
+					+"  </div>"
+					+"</div>"
+				 
+				 +"<div id='myModal-"+count+"' class='modal fade' role='dialog'>"
+				 +"<div class='modal-dialog'>"
+				 
+				 
+				 +"<div class='modal-content'>"
+				  +"<div class='modal-header'>"
+				  +"<h4 class='modal-title'> "+ group.name+"</h4>"
+				 +"<button type='button' class='close' data-dismiss='modal'>&times;</button>"
+				  +"</div>"
+				  +"<div class='modal-body'>"
+				 +"<div class='bg-white'>"
+					+"<p class='p-margin'><span class='fa fa-globe fa-margin'></span><a href="+ group.contact.site+"> "+ group.contact.site+" </a></p>"
+					+"<p class='p-margin'><span class='fa fa-envelope fa-margin'></span>  "+ group.contact.email+"</p>"
+					+"<p class='p-margin'><span class='fa fa-phone fa-margin'></span>    "+ group.contact.phone+"</p>"
+				  +" </div>"
+				  +" <div class='bg-white text-Separationbox'>"
+					+"<div class='row' id='one'>"
+				 +"	<div class='col-lg-5 col-sm-5 portfolio-item'>"
+					+"		<p class='p-margin'><span class='fa fa-map-marker'></span><b> ADDRESS</b></p>"
+						+"	<ul class='a'>"
+							+"  <li>STREET: "+ group.address.street+"</li>"
+							  +"<li>CITY: "+ group.address.city+"</li>"
+							  +"<li>STATE: "+ group.address.state+"</li>"
+							+"</ul>"
+						+"</div>"
+					+"	<div class='col-lg-6 col-sm-6 portfolio-item'>"
+				 +"			<div id='"+count+"' class='map'></div>"
+				 +"			</div>"		
+						
+				 +"		  </div>"
+				 +"	  </div>"
+				 +"	  <div class='modal-footer'>"
+				 +"		<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+				 +"	  </div>"
+				 +"	</div>"
+				 +"</div>"
+				 +"</div>");
+         	   count=count+1;
+         	});
+         		$.ratePicker("#rating-1");
+         		$.ratePicker("#rating-2");
+         		$.ratePicker("#rating-3");
+         		$.ratePicker("#rating-4");
+         		$.ratePicker("#rating-5");
+         		$.ratePicker("#rating-6");
+				$.ratePicker("#rating-7");
+				$.ratePicker("#rating-8");
+				$.ratePicker("#rating-9");
+				
+				
+			
+         });
+       
+      </script>
+      
+
+   </body>
+ 
+</html>

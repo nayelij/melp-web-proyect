@@ -1,0 +1,59 @@
+
+#mainNav .navbar-brand {
+    color: #fed136;
+    font-family: 'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+}
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+.mainNavActive{
+    color: #fed136!important;
+}
+.center{
+	text-align: center;
+}
+.map{
+	width:250px;
+	height:250px;
+	background-color:yellow;
+	
+}
+ul.a {list-style-type: circle;}
+section {
+    padding: 80px 0;
+}
+.h3-marginBottom{
+	 margin-bottom: 55px;
+}
+.bg-white{
+	
+	border: 1px solid #ccc!important;
+    border-radius: 5px;
+}
+.cards{
+	background-color:rgb(255,255,255,.5);
+}
+.text-Separationbox{
+	margin-top:15px;;
+}
+.text-restaurant{
+	font-family: 'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+	color: black;
+}
+.p-margin{
+	margin-left:16px;
+	margin-top:5px;
+}
+.fa-margin{
+	margin-right: 6px;
+}
+body {
+   background-image: url("../img/back.jpg");
+   background-color: #cccccc;
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
